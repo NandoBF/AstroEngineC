@@ -7,9 +7,12 @@ using namespace std;
 class CelestialBody {
 	public:
 		string name;
-		int mass_m;
-		int mass_e;
-		int radius_m;
-		int radius_e;
-
+		unsigned int mass_m;
+		unsigned int mass_e;
+		unsigned int radius_m;
+		unsigned int radius_e;
+	
+		CelestialBody(string name) {
+			name = name;
+		}
 };
