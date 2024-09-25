@@ -26,5 +26,8 @@
     <ClInclude Include="body.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BigNum.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

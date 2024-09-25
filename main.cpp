@@ -2,6 +2,7 @@
 #include <cmath>
 #include <vector>
 #include "body.hpp"
+#include "BigNum.hpp"
 
 const float window_width = 1400;
 const float window_height = 900;
@@ -48,6 +49,11 @@ struct VerletObject {
 
 
 int main() {
+
+	char smth[5] = { '1', '2', '3', '4', '5' };
+	bignum big(smth, 5);
+	big.printNum();
+
 	float circleRadius = 25.f;
 	//create window
 	sf::ContextSettings settings;
@@ -105,5 +111,7 @@ int main() {
 		//end frame
 		window.display();
 	}
+	
+
 	return 0;
 }

@@ -136,6 +136,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigNum.hpp" />
     <ClInclude Include="body.hpp" />
     <ClInclude Include="Solver.hpp" />
   </ItemGroup>
