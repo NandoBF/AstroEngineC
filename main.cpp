@@ -50,9 +50,10 @@ struct VerletObject {
 
 int main() {
 
-	char smth[5] = { '1', '2', '3', '4', '5' };
-	bignum big(smth, 5);
+	string smth = "602292131899";
+	bignum big(smth, smth.size());
 	big.printNum();
+	big.print(5);
 
 	float circleRadius = 25.f;
 	//create window
