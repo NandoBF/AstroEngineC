@@ -50,10 +50,20 @@ struct VerletObject {
 
 int main() {
 
-	string smth = "602292131899";
+	string smth = "602292131888";
+	string smth2 = "22";
 	bignum big(smth, smth.size());
+	bignum small(smth2, smth2.size());
 	big.printNum();
-	big.print(5);
+	big.print(2);
+	cout << big.size() << '\n';
+	big = big + small;
+	big.printNum();
+	cout << '+';
+	small.printNum();
+	big.printNum();
+	big = big + 1;
+	big.printNum();
 
 	float circleRadius = 25.f;
 	//create window
