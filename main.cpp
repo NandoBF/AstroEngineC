@@ -50,17 +50,17 @@ struct VerletObject {
 
 int main() {
 
-	string smth = "602292131888";
-	string smth2 = "22";
+	string smth = "60229213188891082391238123123112321609284368924";
+	string smth2 = "238409238400129768954376982457967345876838";
 	bignum big(smth, smth.size());
 	bignum small(smth2, smth2.size());
 	big.printNum();
 	big.print(2);
 	cout << big.size() << '\n';
-	big = big + small;
 	big.printNum();
-	cout << '+';
+	cout << '+' << '\n';
 	small.printNum();
+	big = big + small;
 	big.printNum();
 	big = big + 1;
 	big.printNum();
