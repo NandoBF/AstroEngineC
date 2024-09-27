@@ -27,6 +27,12 @@ public:
 			num[i] = b.num[i];
 		}
 	}
+
+	bignum(const lnum num1) {
+		for (int i = 0; i < 64; i++) {
+			num[i] = num1[i];
+		}
+	}
 			
 	void updateEnd() {
 		for (int i = 0; i < 64; i++) {
@@ -37,17 +43,19 @@ public:
 		}
 	}
 
-	bignum& operator+(bignum& b) {
+	bignum operator+(bignum& b) {
 		int smallest = 0;
 		int over = 0;
+		lnum temp = {};
 		if (number_end < b.number_end) smallest = number_end; else smallest = b.number_end;
 		for (int i = 63; i >= smallest; i--) {
 			int sum = num[i] + b.num[i] + over;
-			num[i] = sum % 10;
+			temp[i] = sum % 10;
 			over = sum / 10;
 		}
-		updateEnd();
-		return *this;
+		bignum newbig(temp);
+		newbig.updateEnd();
+		return newbig;
 	}
 
 	bignum& operator+(int a) {
