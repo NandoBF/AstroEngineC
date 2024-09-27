@@ -52,15 +52,15 @@ int main() {
 
 	string smth = "60229213188891082391238123123112321609284368924";
 	string smth2 = "238409238400129768954376982457967345876838";
-	bignum big(smth, smth.size());
-	bignum small(smth2, smth2.size());
+	bignum big(smth);
+	bignum small(smth2);
 	big.printNum();
 	big.print(2);
 	cout << big.size() << '\n';
 	big.printNum();
 	cout << '+' << '\n';
 	small.printNum();
-	big = big + small;
+	big += small;
 	big.printNum();
 	big = big + 1;
 	big.printNum();
