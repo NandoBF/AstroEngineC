@@ -28,12 +28,14 @@ public:
 		for (int i = 0; i < 64; i++) {
 			num[i] = b.num[i];
 		}
+		updateEnd();
 	}
 
 	bignum(const lnum num1) {
 		for (int i = 0; i < 64; i++) {
 			num[i] = num1[i];
 		}
+		updateEnd();
 	}
 			
 	void updateEnd() {
@@ -56,9 +58,9 @@ public:
 			over = sum / 10;
 		}
 		bignum newbig(temp);
-		if(b.number_end <= number_end) newbig.updateEnd();
 		return newbig;
 	}
+	//SOMETHING IS WRONG HERE, UPDATEEND;
 	bignum operator+(int a) {
 		string ch = to_string(a);
 		int j = ch.size() - 1;
@@ -72,7 +74,6 @@ public:
 			over = sum / 10;
 		}
 		bignum newbig(temp);
-		if(ch.size() >= (64 - number_end)) newbig.updateEnd();
 		return newbig;
 	}
 
@@ -103,6 +104,22 @@ public:
 		return *this;
 	}
 
+	bignum operator*(bignum& b) {
+		int over = 0;
+		lnum temp = {};
+		for (int i = 63; i >= b.number_end || over != 0; i--) {
+			int sum = 0;
+			for (int j = 63; j >= number_end || over != 0; j--) {
+				sum = num[j] * b.num[i] + over;
+				temp[i - (63 - j)] += sum % 10;
+				over = sum / 10;
+				temp[i - (63 - j)] = temp[i - (63 - j)] % 10;
+				over += temp[i - (63 - j)] / 10;
+			}
+		}
+		bignum newbig(temp);
+		return newbig;
+	}
 
 	int size() {
 		return 64 - number_end;
@@ -130,6 +147,15 @@ public:
 			cout << num[i];
 		}
 		cout << '\n';
+	}
+
+	int check_mistakes() {
+		for (int i = 0; i < 64; i++) {
+			if (num[i] > 9) {
+				return 1;
+			}
+		}
+		return 0;
 	}
 };
 

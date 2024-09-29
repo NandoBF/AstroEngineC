@@ -52,8 +52,10 @@ int main() {
 
 	string smth = "60229213188891082391238123123112321609284368924";
 	string smth2 = "238409238400129768954376982457967345876838";
+	string smth3 = "572819481209841";
 	bignum big(smth);
 	bignum small(smth2);
+	bignum mult(smth3);
 	big.printNum();
 	big.print(2);
 	cout << big.size() << '\n';
@@ -63,7 +65,12 @@ int main() {
 	big += small;
 	big.printNum();
 	big = big + 1;
+	cout << big.check_mistakes() << '\n';
 	big.printNum();
+	cout << big.number_end << '\n';
+	big = big * mult;
+	big.printNum();
+	cout << big.check_mistakes() << '\n';
 
 	float circleRadius = 25.f;
 	//create window
