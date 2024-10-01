@@ -14,7 +14,14 @@ public:
 	bignum() {
 		lnum num = {};
 	}
-	
+
+	bignum(int n) {
+		string number = to_string(n);
+		for (int i = number.size() - 1; i >= 0; i++) {
+			num[i] = number[i];
+		}
+	}
+
 	bignum(string number) {
 		int size = number.size();
 		for (int i = 0; number[i]; i++) {
@@ -47,6 +54,20 @@ public:
 		}
 	}
 
+	bignum& operator=(const string b) {
+		int size = b.size();
+		int i = size - 1;
+		lnum temp = {};
+		for (; b[i] != 'e'; i--);
+		i--;
+		cout << i << '\n';
+		for (; i >= 0; i--) {
+			temp[i] = b[i];
+		}
+		bignum newbig(temp);
+		return newbig;
+	}
+
 	bignum operator+(bignum& b) {
 		int smallest = 0;
 		int over = 0;
@@ -60,7 +81,6 @@ public:
 		bignum newbig(temp);
 		return newbig;
 	}
-	//SOMETHING IS WRONG HERE, UPDATEEND;
 	bignum operator+(int a) {
 		string ch = to_string(a);
 		int j = ch.size() - 1;
